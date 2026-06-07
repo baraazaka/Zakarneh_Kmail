@@ -1,0 +1,39 @@
+{
+  "image_analyzed": "fabric_sample.png",
+  "total_defects": 4,
+  "severity": "Medium \u2014 Moderate defects",
+  "defects": [
+    {
+      "id": 1,
+      "x": 166,
+      "y": 316,
+      "width": 49,
+      "height": 21,
+      "area_px": 1029
+    },
+    {
+      "id": 2,
+      "x": 245,
+      "y": 174,
+      "width": 33,
+      "height": 23,
+      "area_px": 759
+    },
+    {
+      "id": 3,
+      "x": 259,
+      "y": 67,
+      "width": 35,
+      "height": 19,
+      "area_px": 665
+    },
+    {
+      "id": 4,
+      "x": 206,
+      "y": 60,
+      "width": 17,
+      "height": 34,
+      "area_px": 578
+    }
+  ]
+}
