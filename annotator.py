@@ -41,4 +41,29 @@ class Annotator:
 
         plt.suptitle(f"FabricCheck — {severity}")
         plt.tight_layout()
-        plt.show()    
+        plt.show()
+        
+        
+        
+     def save_report(self, report_path: str, image_path: str, boxes: list, severity: str):
+        report = {
+            "image_analyzed": image_path,
+            "total_defects": len(boxes),
+            "severity": severity,
+            "defects": [
+                {
+                    "id": i + 1,
+                    "x": int(x),
+                    "y": int(y),
+                    "width": int(w),
+                    "height": int(h),
+                    "area_px": int(w * h)
+                }
+                for i, (x, y, w, h) in enumerate(boxes)
+            ]
+        }
+
+        with open(report_path, "w") as f:
+            json.dump(report, f, indent=2)
+
+        print(f"Report saved: {report_path}")       
