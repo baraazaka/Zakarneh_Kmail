@@ -26,3 +26,44 @@ class Annotator:
         img = Image.fromarray(img_array)
         img.save(output_path)
         print(f"Annotated image saved: {output_path}")
+        
+        
+    def show_comparison(self, original: np.ndarray, annotated: np.ndarray, severity: str):
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+
+        ax1.imshow(original)
+        ax1.set_title("Original Fabric")
+        ax1.axis("off")
+
+        ax2.imshow(annotated)
+        ax2.set_title("Defect Analysis")
+        ax2.axis("off")
+
+        plt.suptitle(f"FabricCheck — {severity}")
+        plt.tight_layout()
+        plt.show()
+        
+        
+        
+     def save_report(self, report_path: str, image_path: str, boxes: list, severity: str):
+        report = {
+            "image_analyzed": image_path,
+            "total_defects": len(boxes),
+            "severity": severity,
+            "defects": [
+                {
+                    "id": i + 1,
+                    "x": int(x),
+                    "y": int(y),
+                    "width": int(w),
+                    "height": int(h),
+                    "area_px": int(w * h)
+                }
+                for i, (x, y, w, h) in enumerate(boxes)
+            ]
+        }
+
+        with open(report_path, "w") as f:
+            json.dump(report, f, indent=2)
+
+        print(f"Report saved: {report_path}")       
