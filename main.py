@@ -30,3 +30,21 @@ def main():
 
     print(f"      Defects found : {len(defects)}")
     print(f"      Severity      : {severity}")
+
+    # Step 3: Annotate
+    print("[3/5] Annotating image...")
+    annotated = ann.draw_boxes(img_array, boxes, severity)
+
+    # Step 4: Save outputs
+    print("[4/5] Saving outputs...")
+    ann.save_annotated(annotated, OUTPUT_IMAGE)
+    ann.save_report(REPORT_FILE, INPUT_IMAGE, boxes, severity)
+
+    # Step 5: Display
+    print("[5/5] Displaying comparison...")
+    ann.show_comparison(img_array, annotated, severity)
+
+    print("\nDone!")
+
+if name == "main":
+    main()

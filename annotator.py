@@ -45,7 +45,7 @@ class Annotator:
         
         
         
-     def save_report(self, report_path: str, image_path: str, boxes: list, severity: str):
+    def save_report(self, report_path: str, image_path: str, boxes: list, severity: str):
         report = {
             "image_analyzed": image_path,
             "total_defects": len(boxes),
