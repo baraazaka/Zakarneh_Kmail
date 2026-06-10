@@ -15,3 +15,13 @@ class DefectDetector:
             cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU
         )
         return binary
+    def find_contours(self, binary: np.ndarray) -> list:
+        contours, _ = cv2.findContours(
+            binary,
+            cv2.RETR_EXTERNAL,
+            cv2.CHAIN_APPROX_SIMPLE
+        )
+        return list(contours)
+
+    def filter_contours(self, contours: list, min_area: int = 50) -> list:
+        return [c for c in contours if cv2.contourArea(c) >= min_area]
