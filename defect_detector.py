@@ -25,3 +25,19 @@ class DefectDetector:
 
     def filter_contours(self, contours: list, min_area: int = 50) -> list:
         return [c for c in contours if cv2.contourArea(c) >= min_area]
+    def classify_severity(self, defects: list, image_area: int) -> str:
+        total_defect_area = sum(cv2.contourArea(c) for c in defects)
+        defect_ratio = (total_defect_area / image_area) * 100
+        num_defects = len(defects)
+
+        if num_defects == 0:
+            return "Good — No defects detected"
+        elif num_defects <= 2 and defect_ratio < 2.0:
+            return "Low — Minor defects"
+        elif num_defects <= 5 or defect_ratio <= 5.0:
+            return "Medium — Moderate defects"
+        else:
+            return "High — Severe defects"
+
+    def get_bounding_boxes(self, contours: list) -> list:
+        return [cv2.boundingRect(c) for c in contours]
