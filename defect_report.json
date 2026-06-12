@@ -1,39 +1,31 @@
 {
   "image_analyzed": "fabric_sample.png",
-  "total_defects": 4,
+  "total_defects": 3,
   "severity": "Medium \u2014 Moderate defects",
   "defects": [
     {
       "id": 1,
-      "x": 166,
-      "y": 316,
-      "width": 49,
-      "height": 21,
-      "area_px": 1029
+      "x": 283,
+      "y": 156,
+      "width": 25,
+      "height": 20,
+      "area_px": 500
     },
     {
       "id": 2,
-      "x": 245,
-      "y": 174,
-      "width": 33,
-      "height": 23,
-      "area_px": 759
+      "x": 205,
+      "y": 89,
+      "width": 29,
+      "height": 40,
+      "area_px": 1160
     },
     {
       "id": 3,
-      "x": 259,
-      "y": 67,
-      "width": 35,
-      "height": 19,
-      "area_px": 665
-    },
-    {
-      "id": 4,
-      "x": 206,
-      "y": 60,
-      "width": 17,
-      "height": 34,
-      "area_px": 578
+      "x": 107,
+      "y": 86,
+      "width": 45,
+      "height": 36,
+      "area_px": 1620
     }
   ]
 }
